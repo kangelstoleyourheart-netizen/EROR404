@@ -58,6 +58,7 @@ npm run dev
 ```bash
 npm start
 ```
+Обязательно в разных консолях/терминалах
 ```bash
 npx http-server -p 5500
 ```
