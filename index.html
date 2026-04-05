@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Всезнайка error404</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+</head>
+<body>
+    <div id="stars-container"></div>
+
+    <header>
+        <div class="container header-flex">
+            <h1 class="main-logo">Всезнайка <span class="sub-logo">error404</span></h1>
+            <div class="header-controls">
+                <span id="current-user-name">Гость</span>
+                <button id="account-btn" class="ios-btn">Аккаунт</button>
+                
+                <div style="display: flex; align-items: center; gap: 8px; margin: 0 10px;">
+                    <span id="theme-icon" style="font-size: 1.2rem;">☀️</span>
+                    <label class="ios-switch">
+                        <input type="checkbox" id="theme-toggle">
+                        <span class="slider"></span>
+                    </label>
+                </div>
+
+                <button id="logout-btn" class="ios-btn" style="display: none;">Выйти</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="container content-layout">
+        <div class="search-central-area">
+            <div class="tabs">
+                <button class="tab-btn active" data-type="products">🛒 Товары</button>
+                <button class="tab-btn" data-type="news">📰 Новости</button>
+            </div>
+            
+            <div id="search-box" class="search-container ico-oval">
+                <input type="text" id="search-input" class="modern-input" placeholder="Поиск по Авито и Юле...">
+                <button id="search-btn" class="modern-btn">Найти</button>
+            </div>
+        </div>
+
+        <div id="results-grid" class="results-grid"></div>
+
+        <div id="news-controls" style="display: none; text-align: center; width: 100%; margin-top: 30px; margin-bottom: 30px;">
+            <button id="load-more-btn" class="modern-btn" style="padding: 12px 40px; border-radius: 30px; font-size: 1.1rem; box-shadow: 0 5px 15px rgba(0,0,0,0.2);">Показать ещё 5</button>
+            <div style="margin-top: 15px;">
+                <span id="reset-search-btn" style="color: #888; cursor: pointer; text-decoration: underline; font-size: 0.95rem; text-decoration:none;">Или искать другие новости</span>
+            </div>
+        </div>
+    </main>
+
+    <footer style="text-align: center; padding: 60px 0 30px 0; width: 100%;">
+        <button id="about-us-btn" style="padding: 12px 35px; border-radius: 50px; border: 1px solid rgba(255, 255, 255, 0.3); background: transparent; color: white; font-weight: 600; font-size: 1.1rem; cursor: pointer; backdrop-filter: blur(10px); transition: 0.3s;">О нас</button>
+    </footer>
+
+    <div id="choice-modal" class="modal" style="display: none;">
+        <div class="ios-plate">
+            <button id="choose-login" class="ios-choice-item">Вход</button>
+            <div class="ios-divider"></div>
+            <button id="choose-reg" class="ios-choice-item">Регистрация</button>
+            <div class="ios-divider"></div>
+            <button id="close-choice" class="ios-choice-item" style="color: red;">Отмена</button>
+        </div>
+    </div>
+
+    <div id="auth-modal" class="modal" style="display: none;">
+        <div class="modal-content ios-card">
+            <h2 id="auth-title" style="color: white; margin-bottom: 20px;">Вход</h2>
+            <input type="text" id="auth-username" class="modern-input" placeholder="Логин">
+            <input type="password" id="auth-password" class="modern-input" placeholder="Пароль" style="margin-top: 10px;">
+            
+            <button id="auth-google-btn" class="modern-btn" style="margin-top: 20px; width: 100%; background: white; color: #333; display: flex; align-items: center; justify-content: center; gap: 10px; border: 1px solid #ddd;">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg" alt="Google" width="20" height="20">
+                Войти через Google
+            </button>
+
+            <button id="auth-submit" class="modern-btn" style="margin-top: 15px; width: 100%;">Продолжить</button>
+            
+            <button id="back-to-choice" class="ios-choice-item" style="margin-top: 10px; width: 100%;">Назад</button>
+            <p id="auth-error" class="error-msg" style="color: red; margin-top: 10px;"></p>
+        </div>
+    </div>
+
+    <div id="contact-modal" class="modal" style="display: none;">
+        <div class="modal-content ios-card">
+            <span class="close-btn" id="close-contact" style="cursor:pointer; float:right; font-size: 1.5rem; color: gray;">&times;</span>
+            <h2 style="margin-bottom: 25px; color: white;">Команда проекта</h2>
+            <ul style="list-style: none; text-align: center; padding: 0;">
+                <li style="margin: 15px 0; font-size: 1.2rem;"><a href="http://t.me/april_23_2023" target="_blank" style="color: #0a84ff; text-decoration: none; font-weight: bold;">Дмитрий</a></li>
+                <li style="margin: 15px 0; font-size: 1.2rem;"><a href="http://t.me/x3nn1b" target="_blank" style="color: #0a84ff; text-decoration: none; font-weight: bold;">Георгий</a></li>
+                <li style="margin: 15px 0; font-size: 1.2rem;"><a href="http://t.me/Peopleogo" target="_blank" style="color: #0a84ff; text-decoration: none; font-weight: bold;">Анастасия</a></li>
+                <li style="margin: 15px 0; font-size: 1.2rem;"><a href="http://t.me/Voiceh_E" target="_blank" style="color: #0a84ff; text-decoration: none; font-weight: bold;">Андрей</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <script type="module" src="src/app.js"></script>
+</body>
+</html>
